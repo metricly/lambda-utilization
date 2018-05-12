@@ -4,6 +4,8 @@ import * as AWS from 'aws-sdk';
 // tslint:disable-next-line:no-var-requires
 const zlib = require('zlib');
 
+const client = new AWS.CloudWatch();
+
 exports.handler = async (input: Lambda.CloudWatchLogsEvent, context: Lambda.Context) => {
   const payload = new Buffer(input.awslogs.data, 'base64');
   try {
@@ -14,13 +16,27 @@ exports.handler = async (input: Lambda.CloudWatchLogsEvent, context: Lambda.Cont
     const metrics = data.logEvents.map((event) => {
       const matches = /Memory Size: ([0-9].+) MB\tMax Memory Used: ([0-9].+)MB/g.exec(event.message);
       return {
-        billed: parseInt(matches[1], 10),
-        used: parseInt(matches[2], 10)
+        billed: parseFloat(matches[1]),
+        used: parseFloat(matches[2])
       };
     });
-    console.log(`Function Name: ${functionName}`);
-    console.log(`Version: ${version}`);
-    console.log(`Metrics: ${JSON.stringify(metrics, null, 2)}`);
+    const response = await client.putMetricData({
+      MetricData: metrics.map((metric) => {
+        return {
+          Dimensions: [{
+            Name: 'Version',
+            Value: version
+          }, {
+            Name: 'Function',
+            Value: functionName
+          }],
+          MetricName: 'metricly.aws.lambda.memory.utilization',
+          Timestamp: new Date(),
+          Value: 100 * metric.used / metric.billed
+        };
+      }),
+      Namespace: 'Metricly'
+    }).promise();
     context.done();
   } catch (e) {
     context.fail(e);
