@@ -8,6 +8,7 @@
     "test": "tslint -p tslint.json"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.3",
     "@types/node": "^6.0.110",
     "tslint": "~5.8.0",
     "typescript": "^2.8.3"
