@@ -5,7 +5,8 @@
   "author": "TheConnMan",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "tslint -p tslint.json"
+    "test": "tslint -p tslint.json",
+    "zip": "zip -qr memlam.zip ."
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.3",

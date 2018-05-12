@@ -8,9 +8,9 @@ const client = new AWS.CloudWatch();
 
 exports.handler = async (input: Lambda.CloudWatchLogsEvent, context: Lambda.Context) => {
   const payload = new Buffer(input.awslogs.data, 'base64');
+  const result = await unzip(payload);
+  const data: any = JSON.parse(result.toString('ascii'));
   try {
-    const result = await unzip(payload);
-    const data: any = JSON.parse(result.toString('ascii'));
     const functionName = data.logGroup.split('/').pop();
     const version = /\[(.*)\]/g.exec(data.logStream)[1];
     const metrics = data.logEvents.map((event) => {
