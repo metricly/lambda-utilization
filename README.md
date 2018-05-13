@@ -16,3 +16,5 @@ You will get a local zip. Upload this to AWS Lambda with an execution role which
 ### CloudWatch Log Stream
 
 On your new Lambda function create a CloudWatch Log trigger. Hook up which Lambda function you want to monitor, name the log stream `Metricly-Lambda-Utilization` and use the filter `REPORT`.
+
+Once the log stream is hooked up you'll start getting custom CloudWatch metrics under the namespace `Metricly`.
