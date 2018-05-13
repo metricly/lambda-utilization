@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "tslint -p tslint.json",
-    "zip": "zip -qr memlam.zip ."
+    "zip": "zip -qr public/lambda-utilization.zip .",
+    "package": "yarn build && yarn install --prod && yarn run zip"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.3",
