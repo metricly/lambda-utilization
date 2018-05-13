@@ -1,0 +1,96 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "AWS::CloudFormation::Designer": {
+      "1a7dbd42-83d4-4240-98c2-e7a32c74fc33": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 10.09539794921875,
+          "y": 225.5284881591797
+        },
+        "z": 0,
+        "embeds": []
+      },
+      "0974b3bf-b2bb-4e53-ba7d-d40f13569d26": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 120,
+          "y": 330
+        },
+        "z": 0,
+        "embeds": []
+      }
+    }
+  },
+  "Resources": {
+    "LambdaExecRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/CloudWatchFullAccess"
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "1a7dbd42-83d4-4240-98c2-e7a32c74fc33"
+        }
+      }
+    },
+    "lambda-utilization": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": "lambda-utilization",
+          "S3Key": "lambda-utilization.zip"
+        },
+        "FunctionName": "lambda-utilization",
+        "Handler": "js/index.handler",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:aws:iam::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":role/",
+              {
+                "Ref": "LambdaExecRole"
+              }
+            ]
+          ]
+        },
+        "Runtime": "nodejs8.10",
+        "Timeout": 30
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "0974b3bf-b2bb-4e53-ba7d-d40f13569d26"
+        }
+      },
+      "DependsOn": [
+        "LambdaExecRole"
+      ]
+    }
+  }
+}
