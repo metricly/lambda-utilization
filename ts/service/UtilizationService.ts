@@ -1,6 +1,8 @@
 import cloudWatchService from './CloudWatchService';
 import parsingService from './ParsingService';
 
+import logger from '../config/Logger';
+
 export class UtilizationService {
 
   public async calculate(functionNames: string[], endTime: number, durationMs: number): Promise<void> {
@@ -12,7 +14,7 @@ export class UtilizationService {
           await cloudWatchService.postCloudWatchMetrics(functionName, samples);
         }
       } catch (e) {
-        console.error('Error parsing and posting logs', e);
+        logger.error('Error parsing and posting logs', e);
       }
     }));
   }

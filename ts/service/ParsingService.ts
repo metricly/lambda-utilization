@@ -1,4 +1,6 @@
 import { OutputLogEvent } from 'aws-sdk/clients/cloudwatchlogs';
+
+import logger from '../config/Logger';
 import { Sample } from '../model/Sample';
 
 export class ParsingService {
@@ -24,7 +26,7 @@ export class ParsingService {
         ];
         return allSamples.concat(samples);
       } catch (e) {
-        console.log(`Error parsing log line`, e);
+        logger.error(`Error parsing log line`, e);
         return allSamples;
       }
     }, []);
