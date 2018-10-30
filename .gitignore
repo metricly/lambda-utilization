@@ -3,3 +3,5 @@ js/
 .nyc_output/
 coverage/
 .vscode/
+*.log
+unit/

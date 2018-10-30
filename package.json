@@ -4,21 +4,51 @@
   "main": "js/index.js",
   "author": "TheConnMan",
   "scripts": {
+    "test": "yarn run lint && yarn run mocha && yarn run coverage",
     "build": "tsc -p tsconfig.json",
-    "test": "tslint -p tslint.json",
+    "lint": "tslint -p tslint.json",
+    "coverage": "nyc report",
+    "mocha": "nyc mocha --reporter mochawesome --reporter-options reportDir=unit,reportFilename=index.html",
     "zip": "zip -qr public/lambda-utilization.zip .",
     "package": "yarn build && yarn install --prod && yarn run zip"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.3",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
     "@types/node": "^6.0.110",
+    "@types/sinon": "^5.0.5",
     "@types/winston": "^2.4.4",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "mochawesome": "^3.1.1",
+    "nyc": "^13.1.0",
+    "sinon": "^7.1.0",
+    "ts-node": "^7.0.1",
     "tslint": "~5.8.0",
-    "typescript": "^2.8.3"
+    "typescript": "^3.1.4"
   },
   "dependencies": {
     "aws-sdk": "^2.238.1",
     "winston": "^3.1.0",
     "winston-error": "^1.0.1"
+  },
+  "nyc": {
+    "include": [
+      "ts/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "sourceMap": false
   }
 }

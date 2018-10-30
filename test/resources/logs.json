@@ -1,0 +1,9 @@
+[
+  {
+    "logStreamName": "2018/10/30/[$LATEST]7afadf51ac4b4761ae0d9636c9e5b524",
+    "timestamp": 1540910063251,
+    "message": "REPORT RequestId: e3b6c3a9-dc50-11e8-bf10-6b04ccb9c902\tDuration: 1335.21 ms\tBilled Duration: 1400 ms \tMemory Size: 1024 MB\tMax Memory Used: 173 MB\t\n",
+    "ingestionTime": 1540910076990,
+    "eventId": "34363442694412257059147093946560463643654955448636145666"
+  }
+]
