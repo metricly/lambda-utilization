@@ -23,3 +23,4 @@ To set up the CloudWatch Event go to the Lambda Utilization function in the AWS 
 
 - **DURATION** (default: 60000) - Rate, in milliseconds, the lambda function is configured to run at
 - **FUNCTION_NAMES** - Comma-delimited list of function names Lambda Utilization should monitor
+- **METRICLY_API_KEY** - Metricly Custom integration API key (see https://app.metricly.com/#/profile/integrations for your key)
