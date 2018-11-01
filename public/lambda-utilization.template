@@ -55,7 +55,7 @@
         }
       }
     },
-    "lambda-utilization": {
+    "LambdaUtilization": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
