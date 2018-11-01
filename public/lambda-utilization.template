@@ -55,6 +55,19 @@
       }
     }
   },
+  "Parameters": {
+    "APIKey": {
+      "Description": "Your Metricly Custom integration API key (see https://app.metricly.com/#/profile/integrations)",
+      "MaxLength": "32",
+      "MinLength": "32",
+      "Type": "String"
+    },
+    "FunctionNames": {
+      "Description": "Comma delimited list of Lambda functions to monitor",
+      "Type": "String",
+      "Default": "lambda-utilization"
+    }
+  },
   "Resources": {
     "LambdaExecRole": {
       "Type": "AWS::IAM::Role",
@@ -123,8 +136,12 @@
         "Environment": {
           "Variables": {
             "DURATION": "300000",
-            "FUNCTION_NAMES": "lambda-utilization",
-            "METRICLY_API_KEY": ""
+            "FUNCTION_NAMES": {
+              "Ref": "FunctionNames"
+            },
+            "METRICLY_API_KEY": {
+              "Ref": "APIKey"
+            }
           }
         }
       },
