@@ -10,7 +10,7 @@
     "coverage": "nyc report",
     "mocha": "nyc mocha --reporter mochawesome --reporter-options reportDir=unit,reportFilename=index.html",
     "zip": "zip -qr public/lambda-utilization.zip .",
-    "package": "yarn build && yarn install --prod && yarn run zip"
+    "package": "yarn install && yarn build && yarn install --prod && yarn run zip"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.3",
