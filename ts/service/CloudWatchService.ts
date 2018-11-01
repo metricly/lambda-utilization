@@ -11,39 +11,23 @@ export class CloudWatchService {
    * Fetch CloudWatch logs for the given function filtered by REPORT.
    * Logs are fetched for one period back as logs take a few moments to populate in CloudWatch.
    */
-  public async fetchLogs(functionName: string, endTime: number, durationMs: number): Promise<OutputLogEvent[]> {
+  public async fetchLogs(
+      functionName: string,
+      endTime: number,
+      durationMs: number,
+      nextToken: string): Promise<OutputLogEvent[]> {
     const response = await this.cloudWatchLogsClient.filterLogEvents({
       endTime: endTime - durationMs,
       logGroupName: `/aws/lambda/${functionName}`,
       filterPattern: 'REPORT ',
-      startTime: endTime - 2 * durationMs
+      startTime: endTime - 2 * durationMs,
+      nextToken
     }).promise();
+    if (response.nextToken) {
+      const additionalEvents = await this.fetchLogs(functionName, endTime, durationMs, response.nextToken);
+      return response.events.concat(additionalEvents);
+    }
     return response.events;
-  }
-
-  /**
-   * Post samples from the parsed Lambda logs to CloudWatch.
-   *
-   * This will be replaced by posting data to Metricly.
-   */
-  public async postCloudWatchMetrics(functionName: string, samples: Sample[]) {
-    return await this.cloudWatchClient.putMetricData({
-      MetricData: samples.map((sample) => {
-        return {
-          Dimensions: [{
-            Name: 'Version',
-            Value: sample.version
-          }, {
-            Name: 'Function',
-            Value: functionName
-          }],
-          MetricName: sample.metric,
-          Timestamp: new Date(sample.date),
-          Value: sample.value
-        };
-      }),
-      Namespace: 'Metricly'
-    }).promise();
   }
 }
 
