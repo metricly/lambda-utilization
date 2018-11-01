@@ -59,7 +59,18 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": "lambda-utilization",
+          "S3Bucket": {
+            "Fn::Join": [
+              "",
+              [
+                "com-netuitive-",
+                {
+                  "Ref": "AWS::Region"
+                },
+                "-lambda-assets"
+              ]
+            ]
+          },
           "S3Key": "lambda-utilization.zip"
         },
         "FunctionName": "lambda-utilization",
