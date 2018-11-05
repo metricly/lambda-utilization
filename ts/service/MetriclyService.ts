@@ -34,7 +34,8 @@ export class MetriclyService {
               timestamp: sample.date,
               val: sample.value
             };
-          })
+          }),
+          type: 'Lambda'
         }],
         json: true,
         simple: true // Simple=true causes non-2xx responses to throw an error
