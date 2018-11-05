@@ -1,6 +1,8 @@
-import * as r2 from 'r2';
+import * as request from 'request-promise';
 import { Sample } from '../model/Sample';
 import AWSUtils from '../util/AWSUtils';
+
+import logger from '../config/Logger';
 
 export class MetriclyService {
 
@@ -20,23 +22,26 @@ export class MetriclyService {
         }]
       };
     });
-    const response = await r2.post(`${MetriclyService.API_ENDPOINT}/ingest/${MetriclyService.API_KEY}`, {
-      json: [{
-        id: AWSUtils.constructFunctionFqn(arn, functionName),
-        name: functionName,
-        metrics,
-        samples: samples.map((sample) => {
-          return {
-            metricId: sample.metric,
-            timestamp: sample.date,
-            val: sample.value
-          };
-        })
-      }]
-    }).response;
-    if (response.status !== 202) {
-      const json = await response.json();
-      throw new Error(`Error posting samples to Metricly (status ${response.status}): ${json.detail}`);
+    try {
+      await request.post(`${MetriclyService.API_ENDPOINT}/ingest/${MetriclyService.API_KEY}`, {
+        body: [{
+          id: AWSUtils.constructFunctionFqn(arn, functionName),
+          name: functionName,
+          metrics,
+          samples: samples.map((sample) => {
+            return {
+              metricId: sample.metric,
+              timestamp: sample.date,
+              val: sample.value
+            };
+          })
+        }],
+        json: true,
+        simple: true // Simple=true causes non-2xx responses to throw an error
+      }).promise();
+    } catch (e) {
+      logger.error(`Error posting to Metricly`, e);
+      throw e;
     }
   }
 }
