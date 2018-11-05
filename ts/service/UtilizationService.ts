@@ -23,7 +23,7 @@ export class UtilizationService {
           logger.debug(`Submitted samples for function ${functionName}`);
         }
       } catch (e) {
-        logger.error('Error parsing and posting logs', e);
+        logger.error(`Error parsing and posting logs for function ${functionName}`, e);
       }
     }));
   }
