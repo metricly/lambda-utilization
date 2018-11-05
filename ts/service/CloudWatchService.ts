@@ -1,6 +1,5 @@
 import * as AWS from 'aws-sdk';
 import { OutputLogEvent } from 'aws-sdk/clients/cloudwatchlogs';
-import { Sample } from '../model/Sample';
 
 export class CloudWatchService {
 

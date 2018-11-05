@@ -2,8 +2,6 @@ import * as r2 from 'r2';
 import { Sample } from '../model/Sample';
 import AWSUtils from '../util/AWSUtils';
 
-import logger from '../config/Logger';
-
 export class MetriclyService {
 
   private static API_KEY = process.env.METRICLY_API_KEY;
