@@ -21,8 +21,8 @@ export class ParsingService {
         const billedMemory = parseFloat(matches[2]);
         const usedMemory = parseFloat(matches[3]);
         const samples = [
-          new Sample('metricly.aws.lambda.memory.utilization', log.timestamp, 100 * usedMemory / billedMemory, version),
-          new Sample('metricly.aws.lambda.billed', log.timestamp, (billedMemory / 1024) * (billedMs / 1000), version)
+          new Sample('aws.lambda.memory.utilization', log.timestamp, 100 * usedMemory / billedMemory, version),
+          new Sample('aws.lambda.billed', log.timestamp, (billedMemory / 1024) * (billedMs / 1000), version)
         ];
         return allSamples.concat(samples);
       } catch (e) {
