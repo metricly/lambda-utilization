@@ -1,6 +1,6 @@
 import * as Lambda from 'aws-lambda';
 
-import utilizationService from './service/utilizationService';
+import utilizationService from './service/UtilizationService';
 
 exports.handler = async (input: Lambda.ScheduledEvent, context: Lambda.Context) => {
   const functionNames = process.env.FUNCTION_NAMES.split(',');
