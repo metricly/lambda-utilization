@@ -1,0 +1,598 @@
+language: node_js
+node_js:
+- '8'
+script:
+- yarn test
+before_deploy:
+- yarn run package
+deploy:
+  # UAT Buckets
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-ap-northeast-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-northeast-1
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-ap-northeast-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-northeast-2
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-ap-south-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-south-1
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-ap-southeast-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-southeast-1
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-ap-southeast-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-southeast-2
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-ca-central-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ca-central-1
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-eu-central-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-central-1
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-eu-west-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-west-1
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-eu-west-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-west-2
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-eu-west-3
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-west-3
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-sa-east-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: sa-east-1
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-us-east-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-east-1
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-us-east-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-east-2
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-us-west-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-west-1
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+  - provider: s3
+    access_key_id: AKIAJQKMM4OXN6Q4QI3A
+    secret_access_key:
+      secure: aM9Yh3/OtWb07hc3leoLZmPbPKVQfwNON6KCnx6x0LFDH1GE06bDud69cLi9iCuuyyYnaNgePVMyh6aWoaMiDBMCC3refcxirF3DgEVrofPzAUt5GsHGg27TJvp2MapMt+c1FAQwMK1Oc2+Ns8hrU00ytlL+ZYqPAXISoofOUlVfG7cwczVzxtFsFsqtPR2ri+dw9bOaDLmw7Wu+gkBkHOXXtwPN/alQq1QtQMw3GSUqx6JAv9KU1J4S/VYIO1FlLEAhH7HBM+BxaFR+elN9vkaZGCsauJXsn2ksEn31PltUaZB56Zw6Ao1oFJfCcEV8sBvwIjSssI1xn/H09JcXLHFsMooPCLbh/M+LZzC28K4ynNq7Oa0E3AGZAP3XFCNnSZD0/2csQJlYbL8kXU3kj2w86OufI9fX/i7OkBj5izq/YSmR6JF7vCj+FwKTiEx1zmqOhqtrxRPgKfV97SCGENxRP6wOlBlB2ij8z3PHUL4u35Rr8TfNYGl4Snhv7GScuWRc/0RrKL59/92C/X49tCDSg36OUmlQP1XAwnKHF+RMD1nMDEJBfZhNcrg5QtTMewvO8nm8Qp4eWbhXi3CUNxQkVagIAHjrsbaI+66XLVb66RJiFtm06bz4k7101SFnwv+5xkT5ZLx/bp3L2rt1xQff+XwC7KLrP1kYagwrxF0=
+    bucket: com-netuitive-uat-use1-lambda-assets-us-west-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-west-2
+    on:
+      repo: metricly/lambda-utilization
+      branch: develop
+
+  # App Buckets
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-ap-northeast-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-northeast-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-ap-northeast-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-northeast-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-ap-south-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-south-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-ap-southeast-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-southeast-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-ap-southeast-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-southeast-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-ca-central-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ca-central-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-eu-central-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-central-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-eu-west-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-west-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-eu-west-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-west-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-eu-west-3
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-west-3
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-sa-east-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: sa-east-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-us-east-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-east-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-us-east-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-east-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-us-west-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-west-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAJBUOMA5NZOYOEEFQ
+    secret_access_key:
+      secure: HOaMeqiERaz5f6RBzG9hf3j2HyhHA7Pn1F9ldWRIkmUgGOKuLUAiEDuuHrxIgLiS0XBDWKaRZHVKRTii+5MV2WE83zeDmTIOmi1qLXgJa9quQH1Kx4A+H5oD5kZfvkVKUjYWsE5i1egaeZ6Y1q1g8PvBx3fdt72b28phbITolrfGfNRBS2mIgwZrkRWiPr/Z1ZXytXRMurHQmGpZ/3bIVyOcPLby/MxFTbG2fZJWkIXBsm6CN0pYuY45KswFZNORkWlqiY4A10ZztQsHqeTwjfdJRxt1bvgUoiIzeh3mcgKUa95s8MDkv/qNPpicuhc7i3xqwntE1Y7TimdDv6OmVel4paMLBCWwxT6F/r6D7aY5G5VHjhY+TCx1fl44/2xNUuGcuBAAf9KmSdYajG8nDpAKLzjDgvPbWqAJZ3XlvxI1Jsv1zj8JHIGWqXNDxDkPvw3AHgfMpP/DNyikRTG35ZzogqkuUyI7nERQXDXFUd2Q4o/7QUCiIkiYRZKCIUtWWSkoDAOtT9AN07Q9enve1AdQpP98aCnyJ7XjqPfKPbDlKkTkZbKAvObKf2/lazScK3som/GV4fwJvx/JACsCYOYnro1CTiA59YBYMk/ldZPXyhmDQ6jmViqOIuQIziuw8RaJdIO6ZKumO/Legbd2MSO2xGQzaqRvTf/met5e8i0=
+    bucket: com-netuitive-app-usw2-lambda-assets-us-west-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-west-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+
+  # EU Buckets
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-ap-northeast-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-northeast-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-ap-northeast-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-northeast-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-ap-south-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-south-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-ap-southeast-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-southeast-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-ap-southeast-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ap-southeast-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-ca-central-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: ca-central-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-eu-central-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-central-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-eu-west-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-west-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-eu-west-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-west-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-eu-west-3
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: eu-west-3
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-sa-east-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: sa-east-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-us-east-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-east-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-us-east-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-east-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-us-west-1
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-west-1
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
+  - provider: s3
+    access_key_id: AKIAI4ZHVTF6MAPP6FXQ
+    secret_access_key:
+      secure: VWwkLK5rvzZqAMJgEqL/0ms5JGKqbgd16GlxuDxy8yapdcUrYU8emond1kIDYoN3dOA5Vj34PxwNHBOTIUESp9psG9BNut50FukCxugsSMcJkBbFzbZ0HzUMwiO0KaNTDimBiHV1YHe1TFcsuDGsPiEQeEAZOFRvdIEiJvBMjn7tKND9iiiu+vDawrIhoe0rUq4C1PAyawemdV/fDFS6lZwUlQy2r96a+CbxO731ERDWFCebkbMHxzWmYwydxhCv42RIimUB+n1mVLRUxHyojN6dcAOo8D8/6Ez82osUPCMkZO9d7ur7TsH/ecPM2sJMJG+5tZsaUa+tGx+Td/JILFdepQQpUhYePpPK/m/xs0On5YDJBoBEnET4shjKXE+Zep+PWqLF/pJQkuGR2lVOz2SLLaEmqroBqJ3mo7dZo4R7MeANTGrmwetzbh7ZKoCOjxSHlOQVbAly7NpdcW+PrMBVdI3MgbTw3Naer6P66u0hFaw/KODnUzcZHn033cL1ZFHeE2EZOPTxMwT50IrMbxS0kUFUV/9tuRFJwarUh2T7L3+xWqZqd6yEoK15NQp8UtE46B61BspVRgZBDL3mDreJSr0Iik6z2D/UmGmg1yCmXFkWhdOPP5e+Bawu4K1QS5JdItH9HzjnsbVUwbc302DfvMSjfIIjL8OJqTs6JiE=
+    bucket: com-netuitive-eu-euw1-lambda-assets-us-west-2
+    local-dir: public
+    upload-dir: lambda-utilization
+    acl: public_read
+    skip_cleanup: true
+    region: us-west-2
+    on:
+      repo: metricly/lambda-utilization
+      tags: true
