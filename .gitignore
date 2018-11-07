@@ -3,4 +3,6 @@ js/
 .nyc_output/
 coverage/
 .vscode/
-resources/test-event.json
+*.log
+unit/
+public/*.zip

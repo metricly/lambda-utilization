@@ -11,7 +11,8 @@
     "preserveConstEnums": true,
     "declaration": true,
     "suppressImplicitAnyIndexErrors": true,
-    "outDir": "./js"
+    "outDir": "./js",
+    "resolveJsonModule": true
   },
   "include": [
     "./ts/**/*.ts"

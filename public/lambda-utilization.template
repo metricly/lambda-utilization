@@ -25,7 +25,57 @@
         },
         "z": 0,
         "embeds": []
+      },
+      "88a14076-8787-443f-bbd6-293ca49c0f86": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": -160,
+          "y": 350
+        },
+        "z": 0,
+        "embeds": []
+      },
+      "4d2cf9b2-3c41-4e22-85a9-1b71d8c6a3b8": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": -90,
+          "y": 270
+        },
+        "z": 0,
+        "embeds": [],
+        "isassociatedwith": [
+          "0974b3bf-b2bb-4e53-ba7d-d40f13569d26"
+        ]
       }
+    }
+  },
+  "Parameters": {
+    "APIKey": {
+      "Description": "Your Metricly Custom integration API key (see https://app.metricly.com/#/profile/integrations)",
+      "MaxLength": "32",
+      "MinLength": "32",
+      "Type": "String"
+    },
+    "FunctionNames": {
+      "Description": "Comma delimited list of Lambda functions to monitor",
+      "Type": "String",
+      "Default": "lambda-utilization"
+    },
+    "BucketLocation": {
+      "Description": "Bucket location for the Lambda function code, leave as the default",
+      "Type": "String",
+      "Default": "app-usw2"
+    },
+    "MetriclyEndpoint": {
+      "Description": "Metricly API data ingest endpoint, leave as the default",
+      "Type": "String",
+      "Default": "https://api.app.metricly.com"
     }
   },
   "Resources": {
@@ -55,12 +105,26 @@
         }
       }
     },
-    "lambda-utilization": {
+    "LambdaUtilization": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": "lambda-utilization",
-          "S3Key": "lambda-utilization.zip"
+          "S3Bucket": {
+            "Fn::Join": [
+              "",
+              [
+                "com-netuitive-",
+                {
+                  "Ref": "BucketLocation"
+                },
+                "-lambda-assets-",
+                {
+                  "Ref": "AWS::Region"
+                }
+              ]
+            ]
+          },
+          "S3Key": "lambda-utilization/lambda-utilization.zip"
         },
         "FunctionName": "lambda-utilization",
         "Handler": "js/index.handler",
@@ -81,16 +145,70 @@
           ]
         },
         "Runtime": "nodejs8.10",
-        "Timeout": 30
+        "Timeout": 120,
+        "Environment": {
+          "Variables": {
+            "DURATION": "300000",
+            "FUNCTION_NAMES": {
+              "Ref": "FunctionNames"
+            },
+            "METRICLY_API_KEY": {
+              "Ref": "APIKey"
+            },
+            "METRICLY_ENDPOINT": {
+              "Ref": "MetriclyEndpoint"
+            }
+          }
+        }
       },
       "Metadata": {
         "AWS::CloudFormation::Designer": {
           "id": "0974b3bf-b2bb-4e53-ba7d-d40f13569d26"
         }
+      }
+    },
+    "FiveMinuteCron": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "ScheduleExpression": "rate(5 minutes)",
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "LambdaUtilization",
+                "Arn"
+              ]
+            },
+            "Id": "TargetFunctionV1"
+          }
+        ]
       },
-      "DependsOn": [
-        "LambdaExecRole"
-      ]
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "88a14076-8787-443f-bbd6-293ca49c0f86"
+        }
+      }
+    },
+    "PermissionForEventsToInvokeLambda": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "LambdaUtilization"
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "events.amazonaws.com",
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "FiveMinuteCron",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "4d2cf9b2-3c41-4e22-85a9-1b71d8c6a3b8"
+        }
+      }
     }
   }
 }
