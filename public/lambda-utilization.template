@@ -66,6 +66,11 @@
       "Description": "Comma delimited list of Lambda functions to monitor",
       "Type": "String",
       "Default": "lambda-utilization"
+    },
+    "BucketLocation": {
+      "Description": "Bucket location for the Lambda function code, leave as the default",
+      "Type": "String",
+      "Default": "app-usw2"
     }
   },
   "Resources": {
@@ -105,13 +110,16 @@
               [
                 "com-netuitive-",
                 {
-                  "Ref": "AWS::Region"
+                  "Ref": "BucketLocation"
                 },
-                "-lambda-assets"
+                "-lambda-assets-",
+                {
+                  "Ref": "AWS::Region"
+                }
               ]
             ]
           },
-          "S3Key": "lambda-utilization.zip"
+          "S3Key": "lambda-utilization/lambda-utilization.zip"
         },
         "FunctionName": "lambda-utilization",
         "Handler": "js/index.handler",
