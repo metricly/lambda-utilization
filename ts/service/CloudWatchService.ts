@@ -17,10 +17,10 @@ export class CloudWatchService {
       nextToken: string): Promise<OutputLogEvent[]> {
     const response = await this.cloudWatchLogsClient.filterLogEvents({
       endTime: endTime - durationMs,
-      logGroupName: `/aws/lambda/${functionName}`,
       filterPattern: 'REPORT ',
-      startTime: endTime - 2 * durationMs,
-      nextToken
+      logGroupName: `/aws/lambda/${functionName}`,
+      nextToken,
+      startTime: endTime - 2 * durationMs
     }).promise();
     if (response.nextToken) {
       const additionalEvents = await this.fetchLogs(functionName, endTime, durationMs, response.nextToken);

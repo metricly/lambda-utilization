@@ -26,8 +26,8 @@ export class MetriclyService {
       await request.post(`${MetriclyService.API_ENDPOINT}/ingest/${MetriclyService.API_KEY}`, {
         body: [{
           id: AWSUtils.constructFunctionFqn(arn, functionName),
-          name: functionName,
           metrics,
+          name: functionName,
           samples: samples.map((sample) => {
             return {
               metricId: sample.metric,
