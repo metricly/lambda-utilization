@@ -71,6 +71,11 @@
       "Description": "Bucket location for the Lambda function code, leave as the default",
       "Type": "String",
       "Default": "app-usw2"
+    },
+    "MetriclyEndpoint": {
+      "Description": "Metricly API data ingest endpoint, leave as the default",
+      "Type": "String",
+      "Default": "https://api.app.metricly.com"
     }
   },
   "Resources": {
@@ -149,6 +154,9 @@
             },
             "METRICLY_API_KEY": {
               "Ref": "APIKey"
+            },
+            "METRICLY_ENDPOINT": {
+              "Ref": "MetriclyEndpoint"
             }
           }
         }
