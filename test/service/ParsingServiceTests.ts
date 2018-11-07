@@ -13,7 +13,7 @@ describe('ParsingService', () => {
 
     // then
     expect(samples).to.have.lengthOf(2);
-    expect(samples.map((sample) => sample.metric)).to.include('metricly.aws.lambda.billed');
+    expect(samples.map((sample) => sample.metric)).to.include('aws.lambda.billed');
     expect(samples.map((sample) => sample.value)).to.include(1.4);
   });
 });
