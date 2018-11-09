@@ -18,6 +18,12 @@ The basic workflow of the function is as follows:
 
 ## Setup
 
+### Quickstart
+
+To deploy this project use [this CloudFormation link](https://console.aws.amazon.com/cloudformation/home?#/stacks/create/review?stackName=Lambda-Utilization&templateURL=https://s3-us-west-2.amazonaws.com/com-netuitive-app-usw2-lambda-assets-us-west-2/lambda-utilization/lambda-utilization.template&param_BucketLocation=app-usw2). Add your Metricly Custom API key (see https://app.metricly.com/#/profile/integrations for your key) as the `APIKey` parameter and add any Lambda function names you want monitored to the `FunctionNames` parameter in a comma delimited list (this function monitors itself by default).
+
+Check the checkbox at the bottom, click create, and in 5 minutes you'll start seeing the additional metrics in Metricly!
+
 ### Lambda
 
 Run the following:
