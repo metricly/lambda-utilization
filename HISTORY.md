@@ -1,4 +1,5 @@
 ## vNext
+- **Techtask** - Use a cron schedule instead of a rate
 
 ## v0.2.0
 - **Improvement** - Update the CloudFormation script to take parameters
