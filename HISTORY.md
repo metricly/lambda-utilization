@@ -1,4 +1,6 @@
 ## vNext
+
+## v0.2.1
 - **Techtask** - Use a cron schedule instead of a rate
 
 ## v0.2.0
