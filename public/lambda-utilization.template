@@ -170,7 +170,7 @@
     "FiveMinuteCron": {
       "Type": "AWS::Events::Rule",
       "Properties": {
-        "ScheduleExpression": "rate(5 minutes)",
+        "ScheduleExpression": "cron(0/5 * * * ? *)",
         "Targets": [
           {
             "Arn": {
