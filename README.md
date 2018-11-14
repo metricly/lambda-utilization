@@ -24,6 +24,20 @@ To deploy this project use [this CloudFormation link](https://console.aws.amazon
 
 Check the checkbox at the bottom, click create, and in 5 minutes you'll start seeing the additional metrics in Metricly!
 
+### Updating
+
+To update your CloudFormation stack:
+
+- Go to the stack in the AWS console
+- Click "Update Stack"
+- Choose "Replace current template"
+- Choose "Amazon S3 URL" for the template location
+- Use the link https://s3-us-west-2.amazonaws.com/com-netuitive-app-usw2-lambda-assets-us-west-2/lambda-utilization/lambda-utilization.template
+- Click Next
+- Modify any parameters you'd like (though a simple update to the latest template may not require any changes), then click Next
+- Do not modify any stack options unless the release notes indicate that you should, then click Next
+- Review your updates and click "Update stack"
+
 ### Lambda
 
 Run the following:
