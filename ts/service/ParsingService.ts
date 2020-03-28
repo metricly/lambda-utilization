@@ -6,7 +6,7 @@ import { Sample } from '../model/Sample';
 export class ParsingService {
 
   // tslint:disable-next-line
-  private static REPORT_PATTERN = 'Billed Duration: ([0-9].+) ms \tMemory Size: ([0-9].+) MB\tMax Memory Used: ([0-9].+)MB';
+  private static REPORT_PATTERN = 'Billed Duration: ([0-9].+) ms\tMemory Size: ([0-9].+) MB\tMax Memory Used: ([0-9].+) MB';
   private static VERSION_PATTERN = '\\[(.*)\\]';
 
   /**
