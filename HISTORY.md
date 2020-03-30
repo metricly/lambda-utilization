@@ -1,4 +1,8 @@
 ## vNext
+- **Techtask** - Use Travis CI environment variables for the deploy
+- **Bugfix** - Update report line pattern RegEx
+- **Techtask** - Upgrade to Lambda 12.x
+- **Bugfix** - Correctly log exception messages
 
 ## v0.2.1
 - **Techtask** - Use a cron schedule instead of a rate
