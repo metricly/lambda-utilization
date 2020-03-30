@@ -26,7 +26,7 @@ export class ParsingService {
         ];
         return allSamples.concat(samples);
       } catch (e) {
-        logger.error(`Error parsing log line`, e);
+        logger.error(`Error parsing log line: ${e.message}`);
         return allSamples;
       }
     }, []);
