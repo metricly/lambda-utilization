@@ -7,9 +7,8 @@ script:
 deploy:
   # UAT Buckets
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-ap-northeast-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -20,9 +19,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-ap-northeast-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -33,9 +31,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-ap-south-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -46,9 +43,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-ap-southeast-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -59,9 +55,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-ap-southeast-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -72,9 +67,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-ca-central-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -85,9 +79,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-eu-central-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -98,9 +91,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-eu-west-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -111,9 +103,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-eu-west-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -124,9 +115,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-eu-west-3
     local-dir: public
     upload-dir: lambda-utilization
@@ -137,9 +127,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-sa-east-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -150,9 +139,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-us-east-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -163,9 +151,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-us-east-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -176,9 +163,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-us-west-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -189,9 +175,8 @@ deploy:
       repo: metricly/lambda-utilization
       branch: develop
   - provider: s3
-    access_key_id: AKIAVY5NPGOPTPR3RXNL
-    secret_access_key:
-      secure: HHmefMeYFNkf4K05hrBGU1ZSg/9FZkkeeM/4yGU+OyhuDqDISN3JZjMIT0LejIEWQKdNpOOqSg1nXy19RvaigSG4TX6GZGiTz3gYx2BA3d+sg7LXF5xMc5lZ+zKeMF7aWSq/w3V/3FCYiVU47Nh5c1eW0s3vWH09RgmI0l9bxY732t+DRvFaRUzR41p08AutVV15ImWDRDa/DlNO/JKKa/WFiujPQyvOBC+SG7/0IVD+jJicJOS3we6N3I/rQkkXEjUgblpfamFRPyJPzP6zVgqFQsLxx2gH3knxM6sLSiSCRhbA3WYgP2tN7cx4VIDQkq0t+Vm+/nJHgYbg1PV9LMIt7uAplZF8Mwmpd6+iXzJA8T15O+MsmrxW8OwADC4qGpMq5Yt1UT6SLCkeAhTrxMeVTKxjf4a6yW8LbDNweyWjFKBa58mLq/lsn2QQebuwlajXkPES77wILvwWXqVCtJfl10x9ayRJVZYpFCfGXko6wBx42+zvD4YgqrMxshPdwE3fXJCmNuKQKl4/eFALEpR1sWoJfzuOXd89b4Noupbb4SdqDKQcllM6Q3Bl88Tky7jOoqWTbItYl6YJiDYdq3ZZdJeCzs1+xdMGurv69jol6Zu6dRlKRIoFW12bOpG3Ota1tRID2LyXPC3JGzUGkB8FK75MQwlAr2HX97eZgQY=
+    access_key_id: $UAT_AWS_ACCESS_KEY
+    secret_access_key: $UAT_AWS_SECRET_KEY
     bucket: com-netuitive-uat-use1-lambda-assets-us-west-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -201,12 +186,9 @@ deploy:
     on:
       repo: metricly/lambda-utilization
       branch: develop
-
-  # App Buckets
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-ap-northeast-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -217,9 +199,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-ap-northeast-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -230,9 +211,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-ap-south-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -243,9 +223,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-ap-southeast-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -256,9 +235,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-ap-southeast-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -269,9 +247,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-ca-central-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -282,9 +259,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-eu-central-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -295,9 +271,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-eu-west-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -308,9 +283,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-eu-west-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -321,9 +295,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-eu-west-3
     local-dir: public
     upload-dir: lambda-utilization
@@ -334,9 +307,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-sa-east-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -347,9 +319,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-us-east-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -360,9 +331,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-us-east-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -373,9 +343,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-us-west-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -386,9 +355,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAT6EAMEVLTOOMUC5Q
-    secret_access_key:
-      secure: PSMGUbZivjGAx1x6s3JXJKvGwliwgH7Tau2SgRbz3ZAcfwP3Ddj7psr/3oh1fJP95VKZJBz++MF+zQ1vVFlMrdAN0HYXNqUb9y17kBvnvEIbHhaQuU7w1yrkEzrWdJo9BGzTG3yjaqmoXMPW5U3WwqP+orbgEHz64z33RlIBGkNhl0KpyVi5qJpwZJpI/DoFexWbLm7qdpGbRKjaWV8mNNWcvTlmH8ZuEQZrGiF5JuOtdwOc+/06+F+6BkmFn402gLW0JwexiydpTNdnbk/Z5gM2hgNdRO0L9J/mazsJT4SfCAAGoOI185ClBKrLXEilwBAnGdy99XFJQzj75g0DRF6ulXsTsqzMPo7AsUiyBQeiBHD3be3I8Pm0/cfujCXk6/NS1ywRMoU7UGRMyV4dy/1kSL5KZ077X4NuCcJV53jAnE91l+qcBOnmLGf6zK9VKczZgf7EwweAkwMWi83pG1so4ZP9RuXqosPmIIhJQuG0ZThxSK0rDslwUamrGNu5O40ulKLixOLdolNKIFWm43UeXJkRMabpwxlD6GfkDa99kuZ8khRZsdpY7ewVXG89ekHgMWizoL+wdR0CyyA077IY4D1qDWGR/kkYRFjc4Sy5VxMwdtvIIdXm9t/4RZXu00OWFdCbxVfqqUiLHBIKht5jPPc3JZEj5pFTVZklIwc=
+    access_key_id: $APP_AWS_ACCESS_KEY
+    secret_access_key: $APP_AWS_SECRET_KEY
     bucket: com-netuitive-app-usw2-lambda-assets-us-west-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -398,12 +366,9 @@ deploy:
     on:
       repo: metricly/lambda-utilization
       tags: true
-
-  # EU Buckets
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-ap-northeast-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -414,9 +379,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-ap-northeast-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -427,9 +391,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-ap-south-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -440,9 +403,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-ap-southeast-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -453,9 +415,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-ap-southeast-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -466,9 +427,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-ca-central-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -479,9 +439,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-eu-central-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -492,9 +451,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-eu-west-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -505,9 +463,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-eu-west-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -518,9 +475,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-eu-west-3
     local-dir: public
     upload-dir: lambda-utilization
@@ -531,9 +487,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-sa-east-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -544,9 +499,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-us-east-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -557,9 +511,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-us-east-2
     local-dir: public
     upload-dir: lambda-utilization
@@ -570,9 +523,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-us-west-1
     local-dir: public
     upload-dir: lambda-utilization
@@ -583,9 +535,8 @@ deploy:
       repo: metricly/lambda-utilization
       tags: true
   - provider: s3
-    access_key_id: AKIAVDJAHXNKXUYYQRVN
-    secret_access_key:
-      secure: bryUEYE/aibPcrv4cVVIby7udLqoe5SmMd/Qvo39UvEec/3mlJrRAERfK9D5ojjuADajBpLVyULePLRgqOc87SiHZrAEzOP+unLkZ6qwIGhrqMpkX3HIRWqSUi7LChUTN2FwMWzt/mvhhLd+5IKjPnKLCWXY2jBAzY8wCJ8yby3n3By7wx4I/4cYueQoheibi7bfUbdRUo7WNLdrWzP7SVBar7iyf5QXIjCVgHMS+PyWINByF7TuQtfKnHnR4U6BvYobZJZWoXetcxhREqrzxZl/oQh8BBFBr4c7WqE+LFJ0pw9jhPmvFeE/VeJJBTV75iBpmyOc6yXIzL1pkf7sXHv+aRqB7r1kHjbxq6xS8hzG7Ny+Q/CcC90OotO8PwPz4dTk9cJmfa+etwWU58qu/LMg6rFVPa+Eib7/7c4Cj5eI2M2r78s6X3ZjQ9kE3m16kYsrZaUcWMowdLTaZ9VoSvBTNmRCWbTN9ZSRdvnjdh6rUCH2JYtil/musPG1QBOOsD8cVK6Cj8xG03VmDoA3n/0EIbNLkLlHlEI3hw9z9P6UI2TEVLvomDd9aYdVHFEGFMnShFpki7sXm/cza4qWAfdtbSpYIDsp9j9NE6VZB5Tb0IE1pTcXoBxVsZuEsw2rcPNarRDzQr9A+4HAg/76h4dmMI2qh8aoiQr5EfDzqJM=
+    access_key_id: $EU_AWS_ACCESS_KEY
+    secret_access_key: $EU_AWS_SECRET_KEY
     bucket: com-netuitive-eu-euw1-lambda-assets-us-west-2
     local-dir: public
     upload-dir: lambda-utilization
