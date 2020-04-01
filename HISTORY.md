@@ -1,5 +1,8 @@
 ## vNext
 
+## v0.3.1
+- **Bugfix** - Update report line pattern RegEx
+
 ## v0.3.0
 - **Techtask** - Use Travis CI environment variables for the deploy
 - **Bugfix** - Update report line pattern RegEx
