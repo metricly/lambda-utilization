@@ -1,4 +1,5 @@
 ## vNext
+- **Bugfix** - Update report line pattern RegEx
 
 ## v0.3.1
 - **Bugfix** - Update report line pattern RegEx
