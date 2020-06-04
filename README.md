@@ -1,5 +1,7 @@
 # Lambda Utilization
 
+**NOTICE:** This project is no longer supported and has been archived.
+
 ![Lambda Utilization Diagram](doc/Lambda-Utilization.png)
 
 ## Description
